@@ -1,4 +1,5 @@
 var saveBtn = $('.row').children('.saveBtn'); 
+// var clearDay = $('.jumbotron').$(:button);
 
 $(document).ready(function () {
     
@@ -25,17 +26,42 @@ $(document).ready(function () {
     $("#hour15 .description").val(JSON.parse(localStorage.getItem("hour15")));
     $("#hour16 .description").val(JSON.parse(localStorage.getItem("hour16")));
     $("#hour17 .description").val(JSON.parse(localStorage.getItem("hour17")));
-    // console.log('localStorage.getItem("hour17":', localStorage.getItem("hour17"))
+
+    function backgroundColor() {
+        var hourNow = moment().format('H'); //from moment.js getting current hour
+        console.log('hourNow:', hourNow)
+
+        //loop over timeblocks to change background color based on past, present, future
+        $(".time-block").each(function () {
+            var blockTime = parseInt($(this).attr("id").split("hour")[1]); //parseInt returns an integer
+            console.log(blockTime)
+            //if the block time is less than current hour then add past css element
+            if (blockTime < hourNow) {
+                $(this).addClass("past");
+                // $(this).removeClass("future");
+                // $(this).removeClass("present");
+            }
+            //if block time is equal to current hour then add present css element
+            else if (blockTime > hourNow) {
+                $(this).addClass("future");
+            }
+            //if nothing else, add future css element
+            else {
+                $(this).addClass("present");
+            }
+        })
+    }
+    backgroundColor();
+
     
+    // clearDay.on("click", function(){
+    //     localStorage.clear();
+    // }
     
 })
 
-//     // Button for clear the day
-// var clearDay = $(#clearDay);
-//     $("#clearDay").on("click", function(){
-//       localStorage.clear();
-//       initPage()
-//     }) 
+//  
+
 // var currentTimeEl = $('#currentDay');
 
 // function displayTime() {
@@ -45,47 +71,4 @@ $(document).ready(function () {
 
 //   setInterval(displayTime, 1000);
 
-// const hr9 = $("#9").text();
-// const hr10 = $("#10").text(); 
-// const hr11 = $("#11").text();
-// const hr12 = $("#12").text(); 
-// const hr1 = $("#1").text();
-// const hr2 = $("#2").text(); 
-// const hr3 = $("#3").text(); 
-// const hr4 = $("#4").text(); 
-// const hr5 = $("#5").text();  
-
-
-// We will need to save text data into local storage using JSON stringify
-// example from last week 
-// localStorage.setItem("highScores", JSON.stringify(highScores));
-
-// What I found for button / local storage 
-//   buttons $(".search-container").click(function() {
-//     localStorage.setItem("var", $("DOM Element").val());), 
-
-// function background () {
-      
-//     $(".form-control").each(function () {
-//         var timeTest = parseInt($(this).attr("id"));
-//         hour = parseInt(hour);
-//         console.log(timeTest);
-//         console.log(hour);
-//   //      console.log(this);
-//         if (hour > timeTest) {
-//             $(this).addClass("past");
-//         } else if (hour < timeTest) {
-//             $(this).addClass("future");
-//         } else {
-//             $(this).addClass("present");
-//         }
-//     });
-//   }
-
-// $(document).ready(function(){
-//     local storage()
-//     background()
   
-//     // Buttons (save to Local Storage)
-  
-//   })
