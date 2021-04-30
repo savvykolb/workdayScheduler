@@ -16,15 +16,15 @@ $(document).ready(function () {
     })
   
     // get the item from hour id and then description
-    $("#hour9 .description").val(localStorage.getItem("hour9"));
-    $("#hour10 .description").val(localStorage.getItem("hour10"));
-    $("#hour11 .description").val(localStorage.getItem("hour11"));
-    $("#hour12 .description").val(localStorage.getItem("hour12"));
-    $("#hour13 .description").val(localStorage.getItem("hour13"));
-    $("#hour14 .description").val(localStorage.getItem("hour14"));
-    $("#hour15 .description").val(localStorage.getItem("hour15"));
-    $("#hour16 .description").val(localStorage.getItem("hour16"));
-    $("#hour17 .description").val(localStorage.getItem("hour17"));
+    $("#hour9 .description").val(JSON.parse(localStorage.getItem("hour9")));
+    $("#hour10 .description").val(JSON.parse(localStorage.getItem("hour10")));
+    $("#hour11 .description").val(JSON.parse(localStorage.getItem("hour11")));
+    $("#hour12 .description").val(JSON.parse(localStorage.getItem("hour12")));
+    $("#hour13 .description").val(JSON.parse(localStorage.getItem("hour13")));
+    $("#hour14 .description").val(JSON.parse(localStorage.getItem("hour14")));
+    $("#hour15 .description").val(JSON.parse(localStorage.getItem("hour15")));
+    $("#hour16 .description").val(JSON.parse(localStorage.getItem("hour16")));
+    $("#hour17 .description").val(JSON.parse(localStorage.getItem("hour17")));
     // console.log('localStorage.getItem("hour17":', localStorage.getItem("hour17"))
     
     
