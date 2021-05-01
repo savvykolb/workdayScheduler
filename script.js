@@ -1,5 +1,4 @@
 var saveBtn = $('.row').children('.saveBtn'); 
-// var clearDay = $('.jumbotron').$(:button);
 
 $(document).ready(function () {
     
@@ -38,8 +37,6 @@ $(document).ready(function () {
             //if the block time is less than current hour then add past css element
             if (blockTime < hourNow) {
                 $(this).addClass("past");
-                // $(this).removeClass("future");
-                // $(this).removeClass("present");
             }
             //if block time is equal to current hour then add present css element
             else if (blockTime > hourNow) {
@@ -51,24 +48,18 @@ $(document).ready(function () {
             }
         })
     }
-    backgroundColor();
-
+    backgroundColor(); //reruns function
     
-    // clearDay.on("click", function(){
-    //     localStorage.clear();
-    // }
+    $("#clearDay").click(function(){
+        $(this).data('clicked', true);
+        console.log('this:', this)
+        if ($(this).data('clicked')) {
+            localStorage.clear();
+            $(document).ready()
+        }
+    });
     
 })
 
-//  
 
-// var currentTimeEl = $('#currentDay');
 
-// function displayTime() {
-//     var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
-//     currentTimeEl.text(rightNow);
-//   }
-
-//   setInterval(displayTime, 1000);
-
-  
