@@ -55,7 +55,7 @@ $(document).ready(function () {
         console.log('this:', this)
         if ($(this).data('clicked')) {
             localStorage.clear();
-            $(document).ready()
+            // $(document).ready()
         }
     });
     
