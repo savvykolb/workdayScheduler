@@ -2,7 +2,14 @@ var saveBtn = $('.row').children('.saveBtn');
 
 $(document).ready(function () {
     
+    function updateTime(){ //this displays time and updates it every minute
     $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm a"));
+    }
+    updateTime();
+    setInterval(function(){
+        updateTime();
+        console.log('updateTime:', updateTime)
+     },60000);
     
     saveBtn.on("click", function () {
         // console.log('It Clicked!')
@@ -55,7 +62,7 @@ $(document).ready(function () {
         console.log('this:', this)
         if ($(this).data('clicked')) {
             localStorage.clear();
-            // $(document).ready()
+            // $(document).reset();
         }
     });
     
