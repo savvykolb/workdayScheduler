@@ -23,7 +23,7 @@ $(document).ready(function () {
         localStorage.setItem(time, JSON.stringify(text)); // save time and text to local storage
     })
   
-    // get the item from hour id and then description
+    // get the item from hour id and then description from local storage and display on DOM
     $("#hour9 .description").val(JSON.parse(localStorage.getItem("hour9")));
     $("#hour10 .description").val(JSON.parse(localStorage.getItem("hour10")));
     $("#hour11 .description").val(JSON.parse(localStorage.getItem("hour11")));
@@ -58,6 +58,7 @@ $(document).ready(function () {
     }
     backgroundColor(); //reruns function
     
+    //clear button clears day on click
     $("#clearDay").click(function(){
         $(this).data('clicked', true);
         console.log('this:', this)
