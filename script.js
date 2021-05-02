@@ -1,6 +1,7 @@
 var saveBtn = $('.row').children('.saveBtn'); 
 
 $(document).ready(function () {
+    //A page can't be manipulated safely until the document is "ready." jQuery detects this state of readiness for you. Code included inside $( document ). ready() will only run once the page Document Object Model (DOM) is ready 
     
     function updateTime(){ //this displays time and updates it every minute
     $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm a"));
@@ -62,8 +63,9 @@ $(document).ready(function () {
         console.log('this:', this)
         if ($(this).data('clicked')) {
             localStorage.clear();
-            // $(document).reset();
+            location.reload();
         }
+        
     });
     
 })
